@@ -5,3 +5,4 @@ Planned features:
 - Audio Visualiser
 - Energy Percentage
 - Auto Song Configuration
+- Visual Mode
