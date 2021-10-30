@@ -6,3 +6,4 @@ Planned features:
 - Energy Percentage
 - Auto Song Configuration
 - "Visual Mode"
+- Pause Counters
