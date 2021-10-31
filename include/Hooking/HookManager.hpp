@@ -1,3 +1,5 @@
+#pragma once
+
 #include "IHook.hpp"
 using namespace SynthUtils::Hooking;
 
