@@ -5,7 +5,7 @@ Various tweaks to the song selection menu and core game in Beat Saber
 Planned features:
 - Inverted HUD Positions
 - Audio Visualiser
-- Energy Percentage
+- ~~Energy Percentage~~ (Done)
 - Auto Song Configuration
 - "Visual Mode"
 - Pause Counters
