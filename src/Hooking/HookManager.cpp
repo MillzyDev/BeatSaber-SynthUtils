@@ -1,4 +1,5 @@
 #include "Hooking/HookManager.hpp"
+#include "Hooking/IHook.hpp"
 using namespace SynthUtils::Hooking;
 
 #include "main.hpp"
@@ -20,7 +21,7 @@ std::vector<IHook *> HookManager::RegisterHooks(std::vector<IHook *> hooks) {
         RegisterHook(hook);
     }
 
-    return this->_hooks;
+    return hooks;
 }
 
 IHook *HookManager::RegisterHook(IHook *hook) {
