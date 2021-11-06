@@ -17,18 +17,21 @@ MAKE_HOOK_MATCH(GameEnergyUIPanel_Start, &GameEnergyUIPanel::Start, void,
 ) {
     GameEnergyUIPanel_Start(self);
 
-    getLogger().info("Creating EnergyPercentage Canvas...");
+     if (getModConfig().sp_enabled.GetValue()) {
+        getLogger().info("Creating EnergyPercentage Canvas...");
 
-    GameObject *percentageCanvas = GameEnergyUIPanelHook::percentageCanvas;
-    percentageCanvas = CreateCanvas();
-    auto pos = self->get_transform()->get_position();
-    percentageCanvas->get_transform()->set_position(pos);
-    pos = percentageCanvas->get_transform()->get_position();
-    pos.y -= 0.3f;
-    percentageCanvas->get_transform()->set_position(pos);
-    GameEnergyUIPanelHook::percentage = CreateText(percentageCanvas->get_transform(), "50%");
-    GameEnergyUIPanelHook::percentage->set_fontSize(15.0f);
-    GameEnergyUIPanelHook::percentage->set_alignment(TextAlignmentOptions::Center);
+        GameObject *percentageCanvas = GameEnergyUIPanelHook::percentageCanvas;
+        percentageCanvas = CreateCanvas();
+        auto pos = self->get_transform()->get_position();
+        percentageCanvas->get_transform()->set_position(pos);
+        pos = percentageCanvas->get_transform()->get_position();
+        pos.x += getModConfig().sp_positionOffset.GetValue().x;
+        pos.y += getModConfig().sp_positionOffset.GetValue().y;
+        percentageCanvas->get_transform()->set_position(pos);
+        GameEnergyUIPanelHook::percentage = CreateText(percentageCanvas->get_transform(), "50%");
+        GameEnergyUIPanelHook::percentage->set_fontSize(getModConfig().sp_fontSize.GetValue());
+        GameEnergyUIPanelHook::percentage->set_alignment(TextAlignmentOptions::Center);
+    }
 }
 
 MAKE_HOOK_MATCH(GameEnergyUIPanel_HandleGameEnergyDidChange, &GameEnergyUIPanel::HandleGameEnergyDidChange, void,
