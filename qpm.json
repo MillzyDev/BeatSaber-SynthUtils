@@ -5,7 +5,8 @@
     "name": "SynthUtils",
     "id": "SynthUtils",
     "version": "0.1.0",
-    "url": null,
+    "url": "https://github.com/MillzyDev/BeatSaber-SynthUtils",
+    "coverImage": "SynthUtils.png",
     "additionalData": {}
   },
   "dependencies": [
