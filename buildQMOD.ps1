@@ -20,7 +20,7 @@ $timeElapsed = [math]::Round($stopwatch.Elapsed.TotalSeconds,3)
 Write-Output "SO build completed in $timeElapsed seconds"
 $stopwatch.Start()
 
-Compress-Archive -Path "./libs/arm64-v8a/libSynthUtils.so", "./libs/arm64-v8a/libbeatsaber-hook_2_3_2.so", "./mod.json" -DestinationPath $TempArchiveName -Force
+Compress-Archive -Path "./libs/arm64-v8a/libSynthUtils.so", "./libs/arm64-v8a/libbeatsaber-hook_2_3_2.so", "./mod.json", "./SynthUtils.png" -DestinationPath $TempArchiveName -Force
 Move-Item $TempArchiveName $ArchiveName -Force
 
 $stopwatch.Stop()
