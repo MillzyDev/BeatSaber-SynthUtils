@@ -10,4 +10,3 @@ namespace SynthUtils::Hooking {
         virtual std::string getName();
     };
 }
-
