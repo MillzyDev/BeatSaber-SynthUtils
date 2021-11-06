@@ -1,11 +1,10 @@
 #pragma once
 
-#include "IHook.hpp"
-using namespace SynthUtils::Hooking;
-
 #include <vector>
 
 namespace SynthUtils::Hooking {
+    class IHook;
+
     class HookManager {
     private:
         std::vector<IHook *> _hooks;
