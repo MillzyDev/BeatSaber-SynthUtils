@@ -6,6 +6,12 @@ using namespace SynthUtils::Hooking;
 #include "Hooking/Hooks/GameEnergyUIPanelHook.hpp"
 using namespace SynthUtils::Hooking::Hooks;
 
+#include "UI/ViewControllers/ModifierPresetViewController.hpp"
+using namespace SynthUtils::UI::ViewControllers;
+
+#include "questui/shared/QuestUI.hpp"
+#include "custom-types/shared/register.hpp"
+
 static ModInfo modInfo; // Stores the ID and version of our mod, and is sent to the modloader upon startup
 
 // Loads the config from disk using our modInfo, then returns it for use
@@ -34,12 +40,16 @@ extern "C" void setup(ModInfo& info) {
 // Called later on in the game loading - a good time to install function hooks
 extern "C" void load() {
     il2cpp_functions::Init();
+    QuestUI::Init();
+
+    custom_types::Register::AutoRegister();
 
     getLogger().info("Installing hooks...");
-    auto *manager = HookManager::GetInstance();
-    manager->RegisterHooks({
-        new GameEnergyUIPanelHook()
+    auto *hookManager = HookManager::GetInstance();
+    hookManager->RegisterHooks({
+        new GameEnergyUIPanelHook(),
     });
-    manager->InstallHooks();
+    hookManager->InstallHooks();
     getLogger().info("Installed all hooks!");
+
 }
