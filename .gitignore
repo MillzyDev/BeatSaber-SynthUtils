@@ -55,3 +55,6 @@ cmake-build-debug/
 
 #QMOD stuff
 *.qmod
+
+# other thingz
+*log
