@@ -9,6 +9,7 @@ Planned features:
 - Auto Song Configuration (On Hold)
 - "Visual Mode" (On Hold)
 - Pause Counters
+- Song Config Information
 
 ## Credits
 
