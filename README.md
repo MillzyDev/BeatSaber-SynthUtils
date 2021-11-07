@@ -6,8 +6,8 @@ Planned features:
 - Inverted HUD Positions
 - Audio Visualiser
 - ~~Energy Percentage~~ (Done)
-- Auto Song Configuration
-- "Visual Mode"
+- Auto Song Configuration (On Hold)
+- "Visual Mode" (On Hold)
 - Pause Counters
 
 ## Credits
