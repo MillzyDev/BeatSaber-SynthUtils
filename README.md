@@ -11,6 +11,8 @@ Planned features:
 - Pause Counters
 - Song Config Information
 - Quit Confirmation
+- Menu Logo Glow Colour
+- Menu Block Colour
 
 ## Credits
 
