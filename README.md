@@ -10,6 +10,7 @@ Planned features:
 - "Visual Mode" (On Hold)
 - Pause Counters
 - Song Config Information
+- Quit Confirmation
 
 ## Credits
 
