@@ -1,6 +1,6 @@
 # SynthUtils
 
-Various tweaks to the song selection menu and core game in Beat Saber
+Various tweaks to the menu and core game in Beat Saber
 
 Planned features:
 - Inverted HUD Positions
