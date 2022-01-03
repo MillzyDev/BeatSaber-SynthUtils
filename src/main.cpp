@@ -1,13 +1,7 @@
 #include "main.hpp"
 
-#include "Hooking/HookManager.hpp"
+#include "Hooking/SUHooks.hpp"
 using namespace SynthUtils::Hooking;
-
-#include "Hooking/Hooks/GameEnergyUIPanelHook.hpp"
-using namespace SynthUtils::Hooking::Hooks;
-
-#include "UI/ViewControllers/ModifierPresetViewController.hpp"
-using namespace SynthUtils::UI::ViewControllers;
 
 #include "questui/shared/QuestUI.hpp"
 #include "custom-types/shared/register.hpp"
@@ -32,8 +26,11 @@ extern "C" void setup(ModInfo& info) {
     info.id = ID;
     info.version = VERSION;
     modInfo = info;
-	
+
     getConfig().Load(); // Load the config file
+    getModConfig().Init(info);
+    getConfig().Reload();
+    getConfig().Write();
     getLogger().info("Completed setup!");
 }
 
@@ -45,11 +42,7 @@ extern "C" void load() {
     custom_types::Register::AutoRegister();
 
     getLogger().info("Installing hooks...");
-    auto *hookManager = HookManager::GetInstance();
-    hookManager->RegisterHooks({
-        new GameEnergyUIPanelHook(),
-    });
-    hookManager->InstallHooks();
+    SUHooks::InstallAllHooks(getLogger());
     getLogger().info("Installed all hooks!");
 
 }
