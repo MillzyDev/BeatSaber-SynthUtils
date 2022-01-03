@@ -15,6 +15,9 @@ using namespace UnityEngine;
 #include "TMPro/TextMeshProUGUI.hpp"
 using namespace TMPro;
 
+#include "Components/RedbarSync.hpp"
+using namespace SynthUtils::Components;
+
 GameObject *percentageCanvas;
 TextMeshProUGUI *percentage;
 
@@ -46,11 +49,15 @@ MAKE_HOOK_MATCH(GameEnergyUIPanel_Start, &GameEnergyUIPanel::Start, void,
 
         getLogger().info("Creating Percentage text...");
         percentage = CreateText(percentageCanvas->get_transform(), string_format(finalFormat.c_str(), 50.0f));
+        percentage->set_name(il2cpp_utils::newcsstr("EnergyPercentage"));
         percentage->set_alignment(TextAlignmentOptions::Center);
 
         getLogger().info("Setting fontSize...");
         percentage->set_fontSize(getModConfig().ep_fontSize.GetValue());
         getLogger().info("Finished creating EnergyPercentage");
+
+        if (getModConfig().ep_redbarSync.GetValue())
+            self->energyBar->get_gameObject()->AddComponent<RedbarSync *>();
     }
 }
 
