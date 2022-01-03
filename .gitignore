@@ -34,6 +34,10 @@
 # VSCode config stuff
 !.vscode/c_cpp_properties.json
 !.vscode/tasks.json
+!.vscode/settings.json
+
+# Jetbrains IDEs
+.idea/
 
 # NDK stuff
 out/
@@ -44,17 +48,20 @@ out/
 ndkpath.txt
 *.zip
 *.txt
-extern/
+*.log
 Android.mk.backup
-qpm.shared.json
-*tombstone_*
 
-#CMake and CLion stuff
-.idea/
-cmake-build-debug/
-
-#QMOD stuff
+# QPM stuff
+[Ee]xtern/
 *.qmod
+qpm.shared.json
+qpm_defines.cmake
+![Cc][Mm]ake[Ll]ists.txt
 
-# other thingz
-*log
+# CMake stuff
+[Bb]uild/
+cmake-build-*/
+extern.cmake
+
+# Exclude the setup file so people dont accidentally run it
+setup-package.ps1

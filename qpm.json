@@ -6,8 +6,9 @@
     "id": "SynthUtils",
     "version": "0.1.0",
     "url": "https://github.com/MillzyDev/BeatSaber-SynthUtils",
-    "coverImage": "SynthUtils.png",
-    "additionalData": {}
+    "additionalData": {
+      "overrideSoName": "libSynthUtils.so"
+    }
   },
   "dependencies": [
     {
@@ -37,6 +38,11 @@
     {
       "id": "config-utils",
       "versionRange": "*",
+      "additionalData": {}
+    },
+    {
+      "id": "modloader",
+      "versionRange": "^1.2.3",
       "additionalData": {}
     }
   ],
